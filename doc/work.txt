@@ -1,0 +1,18 @@
+构建插件
+cd d:/Users/Administrator/CLionProjects/exam/tools
+npm install
+
+
+打包
+cd e:/nodejs/package/testw/quick-new 
+./node_modules/.bin/electron-builder
+
+
+npm start 当前启动
+
+参考
+D:\Users\Administrator\CLionProjects\nodeaddon\ScreenLock-main\src
+
+
+
+
