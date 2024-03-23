@@ -1,0 +1,62 @@
+{
+	"name": "electron-quick-start",
+	"version": "1.0.0",
+	"description": "A minimal Electron application",
+	"main": "main.js",
+	"scripts": {
+		"start": "electron ."
+	},
+	"keywords": [
+		"Electron",
+		"quick",
+		"start",
+		"tutorial",
+		"demo"
+	],
+	"author": "saaa",
+	"license": "CC0-1.0",
+	"devDependencies": {
+		"electron": "^28.2.6",
+		"electron-builder": "^24.13.3"
+	},
+	"build": {
+		"appId": "cc11001100.electron.example-001",
+		"copyright": "CC11001100",
+		"productName": "example-001",
+		"directories": {
+			"buildResources": "build",
+			"output": "dist"
+		},
+		"asar": true,
+		"asarUnpack": [
+			"HotkeyLock.node"
+		],
+		"nsis": {
+			"oneClick": false,
+			"language": "2052",
+			"perMachine": true,
+			"allowToChangeInstallationDirectory": true
+		},
+		"win": {
+			"target": {
+				"target": "nsis",
+				"arch": [
+					"x64",
+					"ia32"
+				]
+			}
+		},
+		"files": [
+			"build/**/*",
+			"main.js",
+			"public/preload.js",
+			"HotkeyLock.node",
+			"index.html",
+			"preload.js",
+			"renderer.js",
+			"styles.css"
+			
+		],
+		"extends": null
+	}
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy">
+    <link href="./styles.css" rel="stylesheet">
+    <title>Hello World!</title>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+   <span id="node-version"></span>
+   
+   <textarea col="244"></textarea>
+ 
+	
+<script type="text/javascript" src="https://cdn.goeasy.io/goeasy-2.11.1.min.js"></script>
+<script type="text/javascript">
+     //初始化GoEasy对象
+    let goEasy = GoEasy.getInstance({
+        host:'hangzhou.goeasy.io', //新加坡host：singapore.goeasy.io
+        appkey: "BS-35f7b5bf1b1645768edf61d20bcce224", //替换为您的应用appkey
+        modules: ['pubsub']
+    });
+     //建立连接
+    goEasy.connect({
+        onSuccess: function () { //连接成功
+            console.log("GoEasy connect successfully.") //连接成功
+        },
+        onFailed: function (error) { //连接失败
+            console.log("Failed to connect GoEasy, code:"+error.code+ ",error:"+error.content);
+        }
+    });
+    //订阅消息
+    goEasy.pubsub.subscribe({
+        channel: "SYSTEM_371329265958904003_329748755557675008",//替换为您自己的channel
+        onMessage: function (message) { //收到消息
+            console.log("Channel:" + message.channel + " content:" + message.content);
+			alert(message.content);
+			document.getElementById("node-version").innerHTML = message.content;
+        },
+        onSuccess: function () {
+            console.log("Channel订阅成功。");
+        },
+        onFailed: function (error) {
+            console.log("Channel订阅失败, 错误编码：" + error.code + " 错误信息：" + error.content)
+        }
+    });
+</script>
+
+ <script src="./renderer.js"></script>
+  </body>
+  
+</html>
